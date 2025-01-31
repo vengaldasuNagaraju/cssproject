@@ -1,15 +1,34 @@
+
+:root {
+
+  /* i am predefining the colors  which should be use in the web page */
+  --color-primary: #2584ff;
+  --color-secondary: #00d9ff;
+  --color-acent: #ff3400;
+  --color-headings: #1b0760;
+  --color-body: #918ca4;
+  --color-border: #ccc;
+  --color-body-darker: #5c5577;
+  --border-radius: 30px
+}
+
+
+
+* , *::after ,*::before{
+  /* we are using this because the box size of the anchor tag is more than the button for that reason we are setting the all box sizing to the borderbox */
+  box-sizing: border-box;
+}
+/* Topography */
+
+/* Typography */
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
 html{
   /* if we write it to 62.5% then it will be the 10px */
   font-size: 62.5%;
-}
-:root{
-
-  /* i am predefining the colors  which should be use in the web page */
-  --color-primary:#2584ff;
-  --color-secondary:#00d9ff;
-  --color-acent:#ff3400;
-  --color-headings:#1b0760;
-  --color-body:#918ca4;
 }
 
 body{
@@ -23,6 +42,7 @@ h1,h2,h3{
   color: var(--color-headings);
   /* hear we use this for making the bottom margin between the para and heading and gap between heading also */
   margin-bottom: 1rem;
+  line-height: 1.1;
 }
 h1{
   font-size: 7rem;
@@ -32,6 +52,7 @@ h2{
 }
 h3{
   font-size: 3rem;
+  font-weight: 500;
 }
 p{
   /* we make the margintop to zero because of the para has some margin  */
@@ -53,4 +74,952 @@ p{
   h3{
     font-size: 2.4rem;
   }
+}
+
+/* Links */
+/* we are working on links */
+a{
+  /* we using this for removing the underline for the anchor elements */
+  text-decoration: none;
+}
+
+.link-arrow{
+  color: var(--color-acent);
+  /* we are using this for making the text to uppercase */
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.link-arrow::after{
+  content: '-->';
+  margin-left: 5px;
+
+  /* we are using this transition to make the hover effec in slow motion  */
+  transition: margin 0.5s;
+}
+.link-arrow:hover::after{
+  /* when we move over the arrow it will move to left margin 10px  */
+  margin-left: 10px;
+}
+
+@media screen and (min-width:1024px){
+  .link-arrow{
+    font-size: 1.5rem;
+  }
+}
+
+/* Badges */
+
+.badge{
+  border-radius: 20px;
+  padding: 0.5rem 2rem;
+  font-weight: 600;
+  font-size: 2rem;
+  /* we use white-space for the content we write to be fixed on the badge  by using that we can remove the wraping */
+  white-space:nowrap;
+}
+/* block element moifier by writing --  these elements we call the skin */
+.badge--primary{
+  background:var(--color-primary);
+  color: #fff;
+}
+.badge--secondary{
+  background:var(--color-secondary);
+  color: #fff;
+}
+.badge--small{
+  font-size: 1.6rem;
+  padding: 0.5rem 1.5rem;
+}
+
+@media screen and (min-width:1024px){
+  .badge{
+    font-size: 1.5rem;
+  }
+  .badge--small{
+    font-size: 1.2rem;
+  }
+}
+
+/* lists */
+
+.list{
+  /* we are removeing the list predefined tags */
+  list-style: none;
+  padding-left: 0;
+  color: var(--color-headings);
+}
+
+.list--inline .list__item{
+  display: inline-block;
+  /* we are taking right margin to give gap between each item */
+  margin-right: 2rem;
+}
+
+.list--tick {
+
+list-style-image: url(../images/tick.svg);
+/* already we kept the paddingleft to 0 initally in list for that we added the icon and thet went out of screen for that purpose i am taking the padding to left  */
+padding-left: 3rem;
+color: var(--color-headings);
+}
+
+.list--tick .list__item{
+/* i am taking the padding left because of the list tick image and text have the padding  */
+  padding-left: 0.5rem;
+  /* to get the gap between each item i am taking the border-bottom: ; */
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width:1024px){
+  .list--tick .list__item{
+    padding-left: 0;
+  }
+}
+
+/* Icon */
+
+.icon{
+  width: 40px;
+  height: 40px;
+
+}
+
+.icon--small{
+  width: 30px;
+  height: 30px;
+}
+
+.icon--primary{
+  /* we are using this for the fill the color to the icon  */
+  fill: var(--color-primary);
+}
+.icon--white{
+  fill: #fff;
+}
+
+.icon-container{
+  background: #f3f9fa;
+  width: 64px;
+  height: 64px;
+  /* border-radius: 100%;
+  the image should be fixed inside the shape we have taken*/
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container--acent{
+  background: var(--color-acent);
+  /* border-radius: 50%; */
+  
+}
+
+/* Buttons */
+
+.button{
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 2rem 3vw;
+  text-align: center;
+
+  /* we are giving the margin in vertical of 1 rem and horizantal is 0 */
+  margin: 1rem 0;
+  border: 0;
+  /* we use this to remove the unnecssary border which come default to a button */
+  border-radius: 40px;
+/* for button we are making the cursor action we move mouse over there  */
+
+  cursor: pointer;
+/* we use the white-space because we have more data not to wrap and get in second line ; */
+outline: 0;
+
+  white-space: nowrap;
+}
+/* 
+we are using this for the icon which exist inside the button  */
+.button .icon{
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1rem;
+
+  /* we use these vertical align for the icon to be in middle  */
+  
+  vertical-align: middle;
+}
+
+.button--primary{
+background: var(--color-primary);
+color: #fff;
+}
+.button--primary:hover{
+  background: #3a8ffd;
+}
+.button--secondary{
+  background: var(--color-secondary);
+  color: #fff;
+}
+.button--secondary:hover{
+  background: #05cdf0;;
+} 
+.button--accent{
+  background: var(--color-acent);
+  color: #fff;
+}
+.button--accent:hover{
+  background: #ec3000;
+}
+
+/* we are creating for the block button  */
+
+.button--block{
+  width: 100%;
+  display: inline-block;
+}
+
+.button--outline{
+  background: #fff;
+  color: var(--color-headings);
+  border: 2px solid var(--color-headings);
+}
+
+.button--outline:hover{
+  background: var(--color-headings);
+  color: #fff;
+}
+
+.btn--stretched{
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+
+@media screen and (min-width:1024px){
+  .button{
+    font-size: 1.5rem;
+  }
+}
+
+/* Input field */
+
+.input{
+  padding: 1.5rem 3.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  outline: 0;
+  color: var(--color-headings);
+  font-size: 2rem;
+}
+::placeholder{
+  /* we use this for changing the color of the placeholder */
+  color: #cdcbd7;
+}
+
+.input-group{
+border: 1px solid var(--color-border);
+border-radius: var(--border-radius);
+
+/* to move the button to right we need to make the input field which is div make as flex   and the input field make with flex -grow it is done */
+
+display: flex;
+}
+
+.input-group .input{
+  /* we are removing the border of the input which exist inside the input-group */
+  border: 0;
+  padding: 1.5rem 2rem;
+  /* by writing flex-grow it will take all the avilable space and grow  */
+  flex-grow: 1;
+  width: 0;
+}
+
+.input-group .button{
+  margin: 4px;
+}
+
+@media screen and (min-width: 1024px){
+  .input{
+    font-size: 1.5rem;
+  }
+}
+
+
+/* Card */
+
+.card{
+  border-radius: 7px;
+  box-shadow: 0 0 20px 10px #f3f3f3;
+
+  /* we applied the borderradius to div and inside div we write the header and the header was overflow anfd that overflow was seeing when we set the overflow to hidden then it problem is solved */
+  
+  overflow:hidden;
+}
+.card__header,.card__body{
+  padding: 2rem 3rem;
+}
+
+.card--primary .card__header{
+  background: var(--color-primary);
+  color: #fff;
+}
+.card--secondary .card__header{
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+
+/* if our card and badge we are adding botha re same color than we change the color of the badge to light card color */
+
+.card--primary .badge--primary{
+  background: #126de4; 
+}
+
+.card--secondary .badge--secondary{
+  background: #02cdf1;
+}
+/* Plans */
+
+/* i am apply for the all plans to apply the transition */
+
+.plan{
+  transition: transform 0.2s ease-out;
+}
+
+.plan__name{
+  color: #fff;
+  margin: 0;
+  font-weight: 500;
+  font-size: 2.4rem;
+}
+.plan__price
+{
+  font-size: 6rem;
+}
+.plan__billing-cycle{
+  font-size: 2.4rem;
+  font-weight: 300;
+  /* bulling cycle is softer than other we use the opacity */
+  opacity: 0.8;
+  margin-right: 1rem;
+ }
+.plan__description{
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.plan .list__item{
+  margin-bottom: 2rem;
+}
+/* 
+we are making the plan-popular thing into the scale  */
+
+.plan--popular{
+  transform: scale(1.1);
+}
+
+
+.plan--popular .card__header{
+  position: relative;
+}
+
+.plan--popular .card__header::before{
+  content: url(../images/popular.svg);
+  width: 40px;
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  right: 5%;
+}
+
+.plan:hover{
+  transform: scale(1.05);
+}
+.plan--popular:hover {
+  transform: scale(1.15);
+}
+
+@media screen and (min-width:1024px){
+  .plan__name{
+    font-size: 1.4rem;
+
+  }
+  .plan__price{
+    font-size: 5rem;
+  }
+  .plan__billing-cycle{
+    font-size: 1.6rem;
+  } 
+  .plan__description{
+    font-size: 1.7rem;
+  }
+}
+
+
+
+/* Media  */
+.media{
+  display: flex;
+  margin-bottom: 4rem;
+}
+.media__title{
+  margin-top: 0;
+}
+.media__body{
+  margin: 0 2rem;
+}
+.media_image{
+  margin-top: 1rem;
+}
+
+
+/* Quotes */
+.quote{
+  font-size: 3rem;
+  font-style: italic;
+  color: var(--color-body-darker);
+  line-height: 1.3;
+}
+
+.quote .quote__text .quote__center{
+text-align: center;
+}
+
+.quote__text::before{
+/* for opening the quotes we are using this predefinded exist in the html */
+content: open-quote;
+}
+.quote__text::after{
+  /* for closing the quotation we are using this predefined exist in the html */
+  content: close-quote;
+}
+
+.quote__author{
+  font-size: 3rem;
+  font-weight: 600;
+  font-style: normal;
+  margin-bottom: 0;
+}
+.quote__organization{
+  color: var(--color-headings);
+  opacity: 0.4;
+  font-size: 2rem;
+  font-style: normal;
+}
+.quote__line{
+/* 
+  we are amking the position to be relative  */
+
+  position: relative;
+  bottom: 10px;
+}
+
+@media screen and (min-width:1024px){
+  .quote{
+    font-size: 2rem;
+  }
+  .quote__author{
+    font-size: 2.4rem;
+  }
+  .quote__organization{
+    font-size: 1.6rem;
+  }
+}
+
+/* grids */
+
+.grid{
+  display: grid;
+  
+}
+/* 
+this media query work for the two grid elements  */
+@media screen and (min-width: 768px){
+  .grid--1x2{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* this media will work for the three grid elements */
+@media screen and (min-width: 1024px) {
+  .grid--1x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Testimonial  */
+
+.testimonial{
+  padding: 3rem;
+}
+
+.testimonial__image{
+  position: relative;
+  margin: 0 3rem;
+}
+
+.testimonial__image >.icon-container{
+  position: absolute;
+  top: 3rem;
+  right: -32px;
+}
+/* hear we are using the direct style selector inside the container we have the imag tah we are selecting the image by this way  .testimonial__image> img*/
+
+.testimonial__image > img{
+  width: 100%;
+}
+
+@media screen and (min-width:768px){
+  .testimonial .quote , .testimonial ,.quote__author{
+    font-size: 2.4rem;
+  }
+
+  .testimonial .quote{
+    margin-left: 6rem;
+    margin-right: 0;
+  }
+}
+
+/* Callout */
+
+.callout{
+  padding: 4rem;
+  border-radius: 5px;
+}
+
+.callout--primary{
+  background: var(--color-primary);
+  color: #fff;
+}
+.callout__heading{
+  color: #fff;
+  font-size: 3rem;
+  margin-top: 0;
+}
+.callout .button{
+  justify-self: center;
+  align-self: center;
+}
+
+.callout__content{
+
+  /* for aligning the text in align we use the textalign property like below */
+
+  text-align: center;
+}
+
+@media screen and (min-width:768px){
+  .callout .grid--1x2{
+    grid-template-columns: 1fr auto;
+  }
+
+
+  .callout__content{
+    text-align: left;
+  }
+
+  .callout .button{
+    justify-self: start;
+    margin: 0 2rem;
+  }
+}
+
+/* //collapsibles */
+
+.collapsible__header{
+
+  /* the elements which are exist in the header class has to move the iteams into horizantlally or vertically based on requirement */
+
+  display: flex;
+  justify-content: space-between;
+}
+.collapsible__heading{
+  margin-top: 0;
+  font-size: 3rem;
+}
+.collapsible__chervon{
+transform: rotate(-90deg);
+transition: transform 0.3s;
+}
+.collapsible__content{
+  /* display: none; */
+  /* for adding the animation we are using this below code */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.collapsible--expanded .collapsible__chervon{
+  transform: rotate(0);
+}
+
+.collapsible--expanded .collapsible__content{
+  /* display: block; */
+  /* for adding the animation we are using this below code */
+  max-height: 100vh;
+  opacity: 1;
+
+}
+
+/* blocks */
+.block{
+  /* why we are declaring a variabl means if we change th padding for block we need to remember that we need to go to the bottom declared class whiush is block-skewed-right we are declaring it and using it */
+  --pading-vertical:6rem;
+  padding: var(--padding-vertical) ,2rem;
+}
+.block__header{
+  text-align: center;
+  margin-bottom:4rem
+}
+
+.block__heading{
+  margin-top: 0;
+}
+.block--dark{
+  background: #000;
+  color: #7b858b;
+}
+.block--dark h1,
+.block--dark h2,
+.block--dark h3{
+  color: #fff;
+}
+
+.block--skewed-right{
+/* 
+here we use the caluculate function to grab the value and add some values to it purpose */
+
+  padding-bottom: calc(var(--pading-vertical) + 4rem);
+  clip-path: polygon(0% 0%,100% 0%,100% 100%, 0% 90%);
+}
+.block--skewed-left{
+  /* 
+here we use the caluculate function to grab the value and add some values to it purpose */
+
+  padding-bottom: calc(var(--pading-vertical) + 4rem);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+}
+
+
+/* we are wrap the heading and para wih the container class and aligning the maxwidth and margin to make to fit in the 1140 size px */
+
+.container{
+max-width: 1140px;
+
+/* i added the margin top and bottom to the elements for the card to be littile bit low  */
+
+margin:0 auto;
+}
+
+/* 
+Navigation bar */
+
+.nav{
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+
+  /* we are using this for the icon to be fix at center */
+
+  align-items: center;
+}
+
+.nav__list{
+  width: 100%;
+  margin: 0;
+}
+
+.nav__item{
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+.nav__item > a{
+
+  /* this we are using for the color change of the anchor tag */
+  
+  color: #d2d0bd;
+  transition: color 0.3s;
+
+}
+
+.nav__item > a:hover{
+  color: #fff;
+}
+
+.nav__toggler{
+  opacity: 0.5;
+  transition: box-shadow 0.15s;
+  cursor: pointer;
+}
+
+.nav__brand{
+
+  /* this we use for moving the image to littile bit down side */
+
+  transform: translateY(5px);
+}
+
+/* we are applying only for the .collapsible--expandedwith nav element we apply the below conditions */
+ 
+/* it is called double class selector */
+
+.nav.collapsible--expanded .nav__toggler{
+  opacity: 1;
+  box-shadow: 0 0 0 3px #666;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 768px){
+.nav__toggler{
+  display: none;
+}
+.nav__list{
+  width: auto;
+  display: flex;
+  font-size: 1.6rem;
+/* 
+  the collapsible content is in invisible for making it into the visible we make use these below properties. */
+
+  max-height: 100%;
+  opacity: 1;
+}
+.nav__item{
+  border: 0;
+}
+}
+
+
+/* Banner  or  */
+
+/* Hero Section */
+
+.hero__tagline{
+  font-size: 2rem;
+  color: #b9c3cf;
+  letter-spacing: 1px;
+  margin: 2rem 0 5rem ;
+}
+
+.hero__image{
+  width: 100%;
+}
+/* .hero{
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+} */
+
+@media screen and (min-width:768px){
+
+  .hero{
+    padding-top: 0;
+  }
+
+  .hero__content{
+    text-align: left;
+    align-self: center;
+  }
+
+}
+
+/* 
+Block domain */
+
+
+.block-domain .input-group{
+  box-shadow: 0 0 30px 20px #e6ebee;
+  border: 0;
+  margin: 4rem auto;
+  max-width: 670px;
+}
+
+.block-domain__prices{
+  color: var(--color-headings);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2,6rem);
+  font-size: 2rem;
+  font-weight: 600;
+  /* for arrange the elements to gorizantally align we use the below on  */
+  justify-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media screen and( min-width: 768px){
+  .block-domain__prices{
+    /* we are using the autofit with min and max setting for the grid elements to set. */
+
+    grid-template-columns: repeat(auto-fit ,minmax(10rem , 1fr))
+  }
+}
+
+
+/* Plans Block */
+
+.block-plans .grid{
+  /* gap 8rem on rows and 4 rem on column  */
+
+gap: 8rem 4rem;
+
+}
+/* for tablets card has the full width for that purpose we use the blow max width to  certain point for the card */
+
+.block-plans .card{
+
+  max-width: 500px;
+  /* to allign the cards to center we use the margin */
+  margin: 0 auto;
+
+}
+
+/* Features */
+
+.feature{
+
+  /* 4rem rows and 2 rems for column */
+ 
+  gap: 4rem 2rem;
+  margin: 12rem 0;
+}
+
+.feature:first-of-type{
+  margin-top: 6rem;
+}
+
+.feature__heading{
+
+  margin: 1rem 0;
+
+}
+
+.feature__image{
+
+  /* for making the imag to responsive we use the width for 100% */
+
+  width: 100%;
+}
+
+@media screen and (min-width:768px){
+/* 
+  by this the order of the content is 1 because we added the markup in 1st to the section then the image by writing the order to 2 the image will take place of the 1st place */
+
+
+  .features:nth-of-type(even) .feature__content{
+    order: 2;
+  }
+}
+
+/* 
+Showcase  Block */
+
+.block-showcase__image > img{
+  width: 100%;
+} 
+
+@media screen and (min-width:768px){
+
+  .block-showcase .grid{
+
+    /* hear we are making the grid columns to take the half image and half text */
+
+    grid-template-columns: 50% 50%;
+  }
+
+  .block-showcase__image{
+   
+    justify-self: end;
+  }
+  .block-showcase__image>img{
+    width: auto;
+    
+      /* we are setting the width of the image to 700px to fix the imag in the grid block */
+
+      max-width: 700px;
+  }
+
+}
+
+/* Footer */
+
+.footer{
+  background-color:#232323;
+  padding-top: 10rem;
+}
+
+.footer a {
+  color: #777;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.footer___section{
+  padding: 2rem;
+  border-bottom: 1px solid #393939;
+}
+.footer__section .list {
+  margin: 0;
+}
+
+.footer__heading{
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.5;
+}
+.footer__brand img {
+  max-width: 230px;
+}
+
+.footer__brand{
+  margin-top: 5rem;
+  text-align: center;
+}
+.footer__copyright{
+  font-size: 2.1rem;
+  color: #fff;
+  opacity: 0.3;
+}
+
+@media screen and (min-width:768px){
+.footer__sections{
+  grid-template-columns: repeat(auto-fit ,minmax(10rem,1fr));
+}
+
+.footer .collapsible__chevron {
+  display: none;
+}
+
+.footer .collapsible__content {
+  opacity: 1;
+  max-height: 100%;
+}
+
+.footer__brand {
+  order: -1;
+  margin-top: 1rem;
+}
+
+.footer__copyright {
+  font-size: 1.5rem;
+}
+
+.footer__section {
+  border: 0;
+}
+
+.footer__heading {
+  font-size: 1.6rem;
+}
+}
+
+/* Sign-up Callout */
+.callout-signup {
+  transform: translateY(5rem);
 }

@@ -1,0 +1,49 @@
+<div class="all">
+      <div style="width: 30% ; padding: 4rem;">
+        <div class="card card--primary">
+          <header class="card__header">Card Title</header>
+          <div class="card__body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, recusandae!
+          </div>
+        </div>
+      </div>
+       <div style="width: 30% ; padding: 4rem;">
+        <div class="card card--secondary">
+          <header class="card__header">Card Title</header>
+          <div class="card__body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, recusandae!
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    css for this 
+
+.all{
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: normal;
+}
+
+.card{
+  border-radius: 7px;
+  box-shadow: 0 0 20px 10px #f3f3f3;
+
+  /* we applied the borderradius to div and inside div we write the header and the header was overflow anfd that overflow was seeing when we set the overflow to hidden then it problem is solved */
+  
+  overflow:hidden;
+}
+.card__header,.card__body{
+  padding: 2rem 3rem;
+}
+
+.card--primary .card__header{
+  background: var(--color-primary);
+  color: #fff;
+}
+.card--secondary .card__header{
+  background-color: var(--color-secondary);
+  color: #fff;
+}

@@ -6,15 +6,73 @@
     <title>Document</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"/>
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
 
-    <h1>heading1</h1>
-    <h2>heading2</h2>
-    <h3>heading3</h3>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe sint sunt minima, quod libero, blanditiis animi inventore aspernatur sed dolor corrupti porro ratione enim possimus perspiciatis recusandae modi? Assumenda, totam.</p>
+    <header>
+       <nav class="nav collapsible">
+      <a class="nav__brand" href="/"> <img src="images/logo.svg" alt="logo image"></a>
+      <svg class="icon icon--white nav__toggler"><use xlink:href="images/sprites.svg#menu"></use>
+      </svg>
+    <ul class="list nav__list collapsible__content">
+      <li class="nav__item"><a href="#">Hosting</a></li>
+      <li class="nav__item"><a href="#">VPS</a></li>
+      <li class="nav__item"><a href="#">Domain</a></li>
+      <li class="nav__item"><a href="#">Pricing</a></li>
+    </ul>
+    </nav>
+    
+    </header>
+    <section class="block block--dark block--skewed-left hero">
+      <div class="container grid grid--1x2">
+        <header class="block__header hero__content">
+          <h1 class="block___heading">Cloud Hosting for Pros</h1>
+          <p class="hero__tagline">Deploy your websites in less than 6 months</p>
+          <a href="#" class="button button--accent button--stretched">Get Started</a>
+        </header>
+
+       <picture>
+         <source type="image/webp" srcset="images/banner.webp 1x, images/banner@2x.webp 2x"/>
+        
+         <source type="image/png" srcset="images/banner.png 1x, images/banner@2x.png 2x"/>
+         <img class="hero__image" src="images/banner.png" alt="it is for alteration">
+
+       </picture>
+      </div>
+    </section>
+
+     
+    
+    <!--     
+    we are using block and container this because we are making for the 1140 px --> 
+
+   <section class="block  container block-domain">
+      <header class="block__header">
+        <h2>Starting at $9 per month</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam vero quas iusto porro cumque accusantium</p>
+      </header>
+      <div class="input-group">
+         <input type="text" placeholder="Enter domain name here..." class="input">
+        <button class="button button--accent">
+           <svg class="icon icon--white"><use xlink:href="images/sprites.svg#search"></use></svg>Search</button>
+        
+      </div>
+      <ul class="list
+      block-domain__prices">
+        <li><span class="badge badge--secondary">.com $9</span></li>
+        <li>.sg $10</li>
+        <li>.space $11</li>
+        <li>.info $11</li>
+        <li>.net $10</li>
+        <li>.xyz $10</li>
+      </ul>
+    </section>
+
+    
+  <script src="js/main.js"></script>
   </body>
 </html>
